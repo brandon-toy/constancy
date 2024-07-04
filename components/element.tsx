@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
 const elements: string[] = [
     '/elements/sun.png',
@@ -18,12 +18,20 @@ interface ImageSource {
     imageSource: string
 }
 
-export default function Elements() {
+type ElementsProps = {
+    reset: boolean
+}
+
+export default function Elements(props: ElementsProps) {
     return (
         <div className="flex flex-col">
-            {elements.map((imageSource) => {
-                return <Element imageSource={imageSource} />
-            })}
+            {props.reset
+                ? elements.map((imageSource: string, x) => {
+                      return <Element key={1 + x} imageSource={imageSource} />
+                  })
+                : elements.map((imageSource: string, x) => {
+                      return <Element key={-1 * x} imageSource={imageSource} />
+                  })}
         </div>
     )
 }
