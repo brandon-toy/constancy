@@ -3,10 +3,6 @@
 import Image from "next/image";
 import { useState } from "react"
 
-
-
-
-
 const elements: string[] = [
 	"/elements/air.png",
 	"/elements/animal.png",
@@ -25,11 +21,9 @@ interface ImageSource {
 
 
 export default function Elements() {
-	const [count, setCount] = useState(0);
 	return (
-		<div className="flex items-center flex-col ">
+		<div className="flex place-content-center flex-row">
 			{elements.map((imageSource) => {
-
 				return <Element imageSource={imageSource} />
 			})
 			}
@@ -41,7 +35,7 @@ function Element(props: ImageSource) {
 
 	const [count, setCount] = useState(0);
 	return (
-		<div className="flex items-center flex-col ">
+		<div className="flex flex-col ">
 			<button onClick={() => setCount(count == 0 ? count : count - 1)}>
 				{count}
 			</button>
