@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 
 const elements: string[] = [
     '/elements/sun.png',
