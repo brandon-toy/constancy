@@ -1,47 +1,64 @@
-"use client"
+'use client'
 
-import Image from "next/image";
-import { useState } from "react"
+import Image from 'next/image'
+import { useState } from 'react'
 
 const elements: string[] = [
-	"/elements/air.png",
-	"/elements/animal.png",
-	"/elements/earth.png",
-	"/elements/fire.png",
-	"/elements/moon.png",
-	"/elements/plant.png",
-	"/elements/sun.png",
-	"/elements/water.png",
+    '/elements/sun.png',
+    '/elements/moon.png',
+    '/elements/fire.png',
+    '/elements/air.png',
+    '/elements/water.png',
+    '/elements/earth.png',
+    '/elements/plant.png',
+    '/elements/animal.png',
 ]
 
 interface ImageSource {
-	imageSource: string
+    imageSource: string
+    count: number
+    setCount: Function
 }
 
-
-
 export default function Elements() {
-	return (
-		<div className="flex place-content-center flex-row">
-			{elements.map((imageSource) => {
-				return <Element imageSource={imageSource} />
-			})
-			}
-		</div>
-	)
+    const [count, setCount] = useState(0)
+
+    return (
+        <div className="flex place-content-center flex-row">
+            {elements.map((imageSource) => {
+                return (
+                    <Element
+                        count={count}
+                        setCount={setCount}
+                        imageSource={imageSource}
+                    />
+                )
+            })}
+        </div>
+    )
 }
 
 function Element(props: ImageSource) {
-
-	const [count, setCount] = useState(0);
-	return (
-		<div className="flex flex-col ">
-			<button onClick={() => setCount(count == 0 ? count : count - 1)}>
-				{count}
-			</button>
-			<button onClick={() => setCount(count + 1)}>
-				<Image width={50} height={50} src={props.imageSource} alt="fire" />
-			</button>
-		</div>
-	)
+    return (
+        <div className="flex flex-col pl-2 pr-2">
+            <button
+                className="text-med"
+                onClick={() =>
+                    props.setCount(
+                        props.count == 0 ? props.count : props.count - 1
+                    )
+                }
+            >
+                {props.count}
+            </button>
+            <button onClick={() => props.setCount(props.count + 1)}>
+                <Image
+                    width={35}
+                    height={35}
+                    src={props.imageSource}
+                    alt="fire"
+                />
+            </button>
+        </div>
+    )
 }
