@@ -1,15 +1,8 @@
 'use client'
 
-import {
-    Elements,
-    Elements,
-    Elements,
-    Elements,
-    ElementState,
-} from '@/lib/features/elements/elementSlice'
+import { Elements } from '@/lib/features/elements/elementSlice'
 import { RootState } from '@/lib/store'
 import Image from 'next/image'
-import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 interface ElementProps {
@@ -17,11 +10,7 @@ interface ElementProps {
     count: number
 }
 
-type ElementsProps = {
-    reset: boolean
-}
-
-export default function Elements(props: ElementsProps) {
+export default function ElementsModule() {
     const elements: Elements = useSelector(
         (state: RootState) => state.elements.elements
     )

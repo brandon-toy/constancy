@@ -12,8 +12,8 @@ export default function Home() {
     return (
         <StoreProvider>
             <Energy />
-            <Element reset={reset} />
-            <ResetButton reset={reset} setReset={setReset} />
+            <Element />
+            <ResetButton />
         </StoreProvider>
     )
 }
