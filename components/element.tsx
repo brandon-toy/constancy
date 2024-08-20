@@ -1,21 +1,20 @@
 'use client'
 
+import {
+    Elements,
+    Elements,
+    Elements,
+    Elements,
+    ElementState,
+} from '@/lib/features/elements/elementSlice'
+import { RootState } from '@/lib/store'
 import Image from 'next/image'
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 
-const elements: string[] = [
-    '/elements/sun.png',
-    '/elements/moon.png',
-    '/elements/fire.png',
-    '/elements/air.png',
-    '/elements/water.png',
-    '/elements/earth.png',
-    '/elements/plant.png',
-    '/elements/animal.png',
-]
-
-interface ImageSource {
+interface ElementProps {
     imageSource: string
+    count: number
 }
 
 type ElementsProps = {
@@ -23,24 +22,29 @@ type ElementsProps = {
 }
 
 export default function Elements(props: ElementsProps) {
+    const elements: Elements = useSelector(
+        (state: RootState) => state.elements.elements
+    )
+
     return (
         <div className="flex flex-col">
-            {props.reset
-                ? elements.map((imageSource: string, x) => {
-                      return <Element key={1 + x} imageSource={imageSource} />
-                  })
-                : elements.map((imageSource: string, x) => {
-                      return <Element key={-1 * x} imageSource={imageSource} />
-                  })}
+            {Object.keys(elements).map((element: string) => {
+                const elementKey = element as keyof Elements
+                return (
+                    <Element
+                        imageSource={elements[elementKey].image}
+                        count={elements[elementKey].value}
+                    />
+                )
+            })}
         </div>
     )
 }
 
-function Element(props: ImageSource) {
-    const [count, setCount] = useState(0)
+function Element(props: ElementProps) {
     return (
         <div className="flex flex-row pt-5 pl-5">
-            <button onClick={() => setCount(count + 1)}>
+            <button>
                 <Image
                     width={35}
                     height={35}
@@ -48,11 +52,8 @@ function Element(props: ImageSource) {
                     alt="fire"
                 />
             </button>
-            <button
-                className="flex text-xl justify-start grow pl-5 pt-1"
-                onClick={() => setCount(count == 0 ? count : count - 1)}
-            >
-                {count}
+            <button className="flex text-xl justify-start grow pl-5 pt-1">
+                {props.count}
             </button>
         </div>
     )
