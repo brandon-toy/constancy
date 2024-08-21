@@ -11,9 +11,11 @@ export default function Home() {
 
     return (
         <StoreProvider>
-            <Energy />
-            <Element />
-            <ResetButton />
+            <div>
+                <Energy />
+                <Element />
+                <ResetButton />
+            </div>
         </StoreProvider>
     )
 }
