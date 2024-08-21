@@ -56,6 +56,7 @@ const elementSlice = createSlice({
             state.elements.sun.value += 1
         },
         incrementFire: (state) => {
+            console.log('incrementFire')
             state.elements.fire.value += 1
         },
         incrementWater: (state) => {
@@ -125,5 +126,36 @@ export const {
     decrementAnimal,
     resetElements,
 } = elementSlice.actions
+
+export const elementReducerMapping = {
+    sun: {
+        increment: incrementSun,
+        decrement: decrementSun,
+    },
+    fire: {
+        increment: incrementFire,
+        decrement: decrementFire,
+    },
+    water: {
+        increment: incrementWater,
+        decrement: decrementWater,
+    },
+    earth: {
+        increment: incrementEarth,
+        decrement: decrementEarth,
+    },
+    air: {
+        increment: incrementAir,
+        decrement: decrementAir,
+    },
+    plant: {
+        increment: incrementPlant,
+        decrement: decrementPlant,
+    },
+    animal: {
+        increment: incrementAnimal,
+        decrement: decrementAnimal,
+    },
+}
 
 export default elementSlice.reducer

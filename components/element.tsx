@@ -1,13 +1,22 @@
 'use client'
 
-import { Elements } from '@/lib/features/elements/elementSlice'
+import {
+    elementReducerMapping,
+    Elements,
+    incrementFire,
+} from '@/lib/features/elements/elementSlice'
 import { RootState } from '@/lib/store'
+import { prototype } from 'events'
 import Image from 'next/image'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 interface ElementProps {
     imageSource: string
     count: number
+    reducers: {
+        increment: any
+        decrement: any
+    }
 }
 
 export default function ElementsModule() {
@@ -23,6 +32,12 @@ export default function ElementsModule() {
                     <Element
                         imageSource={elements[elementKey].image}
                         count={elements[elementKey].value}
+                        reducers={{
+                            increment:
+                                elementReducerMapping[elementKey].increment,
+                            decrement:
+                                elementReducerMapping[elementKey].decrement,
+                        }}
                     />
                 )
             })}
@@ -31,9 +46,11 @@ export default function ElementsModule() {
 }
 
 function Element(props: ElementProps) {
+    const dispatch = useDispatch()
+
     return (
         <div className="flex flex-row pt-5 pl-5">
-            <button>
+            <button onClick={() => dispatch(props.reducers.increment())}>
                 <Image
                     width={35}
                     height={35}
@@ -41,7 +58,10 @@ function Element(props: ElementProps) {
                     alt="fire"
                 />
             </button>
-            <button className="flex text-xl justify-start grow pl-5 pt-1">
+            <button
+                className="flex text-xl justify-start grow pl-5 pt-1"
+                onClick={() => dispatch(props.reducers.decrement())}
+            >
                 {props.count}
             </button>
         </div>
