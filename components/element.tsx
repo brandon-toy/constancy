@@ -3,10 +3,9 @@
 import {
     elementReducerMapping,
     Elements,
-    incrementFire,
 } from '@/lib/features/elements/elementSlice'
 import { RootState } from '@/lib/store'
-import { prototype } from 'events'
+import { ActionCreatorWithoutPayload } from '@reduxjs/toolkit'
 import Image from 'next/image'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -14,8 +13,8 @@ interface ElementProps {
     imageSource: string
     count: number
     reducers: {
-        increment: any
-        decrement: any
+        increment: ActionCreatorWithoutPayload<any>
+        decrement: ActionCreatorWithoutPayload<any>
     }
 }
 

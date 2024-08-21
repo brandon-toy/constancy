@@ -76,24 +76,52 @@ const elementSlice = createSlice({
         },
 
         decrementSun: (state) => {
+            if (state.elements.sun.value === 0) {
+                return
+            }
+
             state.elements.sun.value -= 1
         },
         decrementFire: (state) => {
+            if (state.elements.fire.value === 0) {
+                return
+            }
+
             state.elements.fire.value -= 1
         },
         decrementWater: (state) => {
+            if (state.elements.water.value === 0) {
+                return
+            }
+
             state.elements.water.value -= 1
         },
         decrementEarth: (state) => {
+            if (state.elements.earth.value === 0) {
+                return
+            }
+
             state.elements.earth.value -= 1
         },
         decrementAir: (state) => {
+            if (state.elements.air.value === 0) {
+                return
+            }
+
             state.elements.air.value -= 1
         },
         decrementPlant: (state) => {
+            if (state.elements.plant.value === 0) {
+                return
+            }
+
             state.elements.plant.value -= 1
         },
         decrementAnimal: (state) => {
+            if (state.elements.animal.value === 0) {
+                return
+            }
+
             state.elements.animal.value -= 1
         },
 
