@@ -1,15 +1,15 @@
 {
   "extends": "next/core-web-vitals",
-  "react/jsx-indent": [
-    "error",
-    4
-  ],
-  "react/jsx-indent-props": [
-    "error",
-    4
-  ],
   "rules": {
     "indent": [
+      "error",
+      4
+    ],
+    "react/jsx-indent": [
+      "error",
+      4
+    ],
+    "react/jsx-indent-props": [
       "error",
       4
     ]
