@@ -3,6 +3,7 @@
  */
 const nextConfig = {
     basePath: '/constancy',
+    assetPrefix: '/constancy/',
 }
 
 export default nextConfig
