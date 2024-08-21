@@ -29,6 +29,7 @@ export default function ElementsModule() {
                 const elementKey = element as keyof Elements
                 return (
                     <Element
+                        key={elementKey}
                         imageSource={elements[elementKey].image}
                         count={elements[elementKey].value}
                         reducers={{

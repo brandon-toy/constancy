@@ -37,7 +37,6 @@ const elementSlice = createSlice({
             },
             air: {
                 value: 0,
-                name: 'Air',
                 image: '/elements/air.png',
             },
             plant: {
