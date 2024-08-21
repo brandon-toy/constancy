@@ -56,7 +56,6 @@ const elementSlice = createSlice({
             state.elements.sun.value += 1
         },
         incrementFire: (state) => {
-            console.log('incrementFire')
             state.elements.fire.value += 1
         },
         incrementWater: (state) => {
@@ -115,6 +114,10 @@ const elementSlice = createSlice({
             state.elements.plant.value -= 1
         },
         decrementAnimal: (state) => {
+            if (state.elements.animal.value === 0) {
+                return
+            }
+
             state.elements.animal.value -= 1
         },
 
