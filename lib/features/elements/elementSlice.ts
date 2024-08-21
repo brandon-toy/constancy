@@ -79,21 +79,18 @@ const elementSlice = createSlice({
             if (state.elements.sun.value === 0) {
                 return
             }
-
             state.elements.sun.value -= 1
         },
         decrementFire: (state) => {
             if (state.elements.fire.value === 0) {
                 return
             }
-
             state.elements.fire.value -= 1
         },
         decrementWater: (state) => {
             if (state.elements.water.value === 0) {
                 return
             }
-
             state.elements.water.value -= 1
         },
         decrementEarth: (state) => {
@@ -118,10 +115,6 @@ const elementSlice = createSlice({
             state.elements.plant.value -= 1
         },
         decrementAnimal: (state) => {
-            if (state.elements.animal.value === 0) {
-                return
-            }
-
             state.elements.animal.value -= 1
         },
 
