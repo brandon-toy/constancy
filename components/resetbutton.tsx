@@ -1,3 +1,5 @@
+'use client'
+
 import { resetElements } from '@/lib/features/elements/elementSlice'
 import { useDispatch } from 'react-redux'
 
