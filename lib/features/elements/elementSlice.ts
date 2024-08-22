@@ -49,6 +49,7 @@ const elementSlice = createSlice({
                 image: '/constancy/elements/animal.png',
             },
         },
+        lockElement: false,
     },
     reducers: {
         incrementSun: (state) => {
@@ -128,6 +129,10 @@ const elementSlice = createSlice({
             state.elements.air.value = 0
             state.elements.plant.value = 0
             state.elements.animal.value = 0
+        },
+
+        lockElement: (state) => {
+            state.lockElement = !state.lockElement
         },
     },
 })
