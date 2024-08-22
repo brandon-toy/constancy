@@ -14,9 +14,9 @@ export default function LockButton() {
     return (
         <button onClick={() => dispatch(hitLock())}>
             {lockElement ? (
-                <IoLockOpen size={42} className="align-bottom" />
-            ) : (
                 <IoLockClosed size={42} className="align-bottom" />
+            ) : (
+                <IoLockOpen size={42} className="align-bottom" />
             )}
         </button>
     )
