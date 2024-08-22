@@ -16,6 +16,7 @@ interface ElementProps {
         increment: ActionCreatorWithoutPayload<any>
         decrement: ActionCreatorWithoutPayload<any>
     }
+    element: string
 }
 
 export default function ElementsModule() {
@@ -38,6 +39,7 @@ export default function ElementsModule() {
                             decrement:
                                 elementReducerMapping[elementKey].decrement,
                         }}
+                        element={element}
                     />
                 )
             })}
@@ -55,7 +57,7 @@ function Element(props: ElementProps) {
                     width={35}
                     height={35}
                     src={props.imageSource}
-                    alt="fire"
+                    alt={props.element}
                 />
             </button>
             <button

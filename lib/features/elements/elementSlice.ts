@@ -21,32 +21,32 @@ const elementSlice = createSlice({
         elements: {
             sun: {
                 value: 0,
-                image: '/elements/sun.png',
+                image: '/constancy/elements/sun.png',
             },
             fire: {
                 value: 0,
-                image: '/elements/fire.png',
+                image: '/constancy/elements/fire.png',
             },
             water: {
                 value: 0,
-                image: '/elements/water.png',
+                image: '/constancy/elements/water.png',
             },
             earth: {
                 value: 0,
-                image: '/elements/earth.png',
+                image: '/constancy/elements/earth.png',
             },
             air: {
                 value: 0,
-                image: '/elements/air.png',
+                image: '/constancy/elements/air.png',
             },
             plant: {
                 value: 0,
-                image: '/elements/plant.png',
+                image: '/constancy/elements/plant.png',
             },
 
             animal: {
                 value: 0,
-                image: '/elements/animal.png',
+                image: '/constancy/elements/animal.png',
             },
         },
     },
