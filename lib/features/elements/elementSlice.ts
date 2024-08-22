@@ -223,6 +223,10 @@ const elementSlice = createSlice({
         unlockElement: (state) => {
             state.lockElement = false
         },
+
+        hitLock: (state) => {
+            state.lockElement = !state.lockElement
+        },
     },
 })
 
@@ -258,6 +262,7 @@ export const {
     resetElements,
     lockElement,
     unlockElement,
+    hitLock,
 } = elementSlice.actions
 
 export const elementReducerMapping = {
