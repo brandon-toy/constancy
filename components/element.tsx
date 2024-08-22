@@ -3,6 +3,8 @@
 import {
     elementReducerMapping,
     Elements,
+    lockElement,
+    unlockElement,
 } from '@/lib/features/elements/elementSlice'
 import { RootState } from '@/lib/store'
 import { ActionCreatorWithoutPayload } from '@reduxjs/toolkit'
@@ -14,7 +16,9 @@ interface ElementProps {
     count: number
     reducers: {
         increment: ActionCreatorWithoutPayload<any>
+        incrementLocked: ActionCreatorWithoutPayload<any>
         decrement: ActionCreatorWithoutPayload<any>
+        decrementLocked: ActionCreatorWithoutPayload<any>
     }
     element: string
 }
@@ -32,12 +36,21 @@ export default function ElementsModule() {
                     <Element
                         key={elementKey}
                         imageSource={elements[elementKey].image}
-                        count={elements[elementKey].value}
+                        count={
+                            elements[elementKey].value +
+                            elements[elementKey].lockedValue
+                        }
                         reducers={{
                             increment:
                                 elementReducerMapping[elementKey].increment,
+                            incrementLocked:
+                                elementReducerMapping[elementKey]
+                                    .incrementLocked,
                             decrement:
                                 elementReducerMapping[elementKey].decrement,
+                            decrementLocked:
+                                elementReducerMapping[elementKey]
+                                    .decrementLocked,
                         }}
                         element={element}
                     />
@@ -49,10 +62,33 @@ export default function ElementsModule() {
 
 function Element(props: ElementProps) {
     const dispatch = useDispatch()
+    const isLocked = useSelector(
+        (state: RootState) => state.elements.lockElement
+    )
+
+    const handleDecrementClick = () => {
+        if (!isLocked) {
+            dispatch(props.reducers.decrement())
+            return
+        }
+
+        dispatch(unlockElement())
+        dispatch(props.reducers.decrementLocked())
+    }
+
+    const handleIncrementClick = () => {
+        if (!isLocked) {
+            dispatch(props.reducers.increment())
+            return
+        }
+
+        dispatch(unlockElement())
+        dispatch(props.reducers.incrementLocked())
+    }
 
     return (
         <div className="flex flex-row pt-5 pl-5">
-            <button onClick={() => dispatch(props.reducers.increment())}>
+            <button onClick={handleDecrementClick}>
                 <Image
                     width={35}
                     height={35}
@@ -62,7 +98,7 @@ function Element(props: ElementProps) {
             </button>
             <button
                 className="flex text-xl justify-start grow pl-5 pt-1"
-                onClick={() => dispatch(props.reducers.decrement())}
+                onClick={handleIncrementClick}
             >
                 {props.count}
             </button>
