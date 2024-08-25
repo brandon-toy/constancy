@@ -3,13 +3,12 @@
 import {
     elementReducerMapping,
     Elements,
-    lockElement,
     unlockElement,
 } from '@/lib/features/elements/elementSlice'
 import { RootState } from '@/lib/store'
 import { ActionCreatorWithoutPayload } from '@reduxjs/toolkit'
-import Image from 'next/image'
 import { useDispatch, useSelector } from 'react-redux'
+import ElementButton from './elementButton'
 
 interface ElementProps {
     imageSource: string
@@ -87,21 +86,14 @@ function Element(props: ElementProps) {
     }
 
     return (
-        <div className="flex flex-row pt-5 pl-5">
-            <button onClick={handleDecrementClick}>
-                <Image
-                    width={35}
-                    height={35}
-                    src={props.imageSource}
-                    alt={props.element}
-                />
-            </button>
-            <button
-                className="flex text-xl justify-start grow pl-5 pt-1"
-                onClick={handleIncrementClick}
-            >
-                {props.count}
-            </button>
+        <div className="flex flex-col justify-center items-center pt-5">
+            <ElementButton
+                elementSrc={props.imageSource}
+                elementCount={props.count}
+                incrementButton={handleIncrementClick}
+                decrementButton={handleDecrementClick}
+                elementAlt={props.element}
+            />
         </div>
     )
 }
