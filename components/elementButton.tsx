@@ -11,10 +11,13 @@ interface ElementButtonProps {
 export default function ElementButton(props: ElementButtonProps) {
     return (
         <div className="join px-20">
-            <button onClick={props.decrementButton} className="join-item btn">
+            <button
+                onClick={props.decrementButton}
+                className="text-secondary join-item btn"
+            >
                 -
             </button>
-            <button className="join-item btn">
+            <button className="join-item btn text-accent">
                 <Image
                     src={props.elementSrc}
                     width={20}
@@ -23,7 +26,10 @@ export default function ElementButton(props: ElementButtonProps) {
                 />
                 {props.elementCount}
             </button>
-            <button onClick={props.incrementButton} className="join-item btn">
+            <button
+                onClick={props.incrementButton}
+                className="text-secondary join-item btn"
+            >
                 +
             </button>
         </div>
