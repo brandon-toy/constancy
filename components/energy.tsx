@@ -3,14 +3,14 @@
 import { useState } from 'react'
 
 export default function Energy() {
-    const [energy, useEnergy] = useState(0)
+    const [energy, setEnergy] = useState(0)
 
     const handleDecrement = (newEnergy: number) => {
-        useEnergy(newEnergy > 0 ? newEnergy : 0)
+        setEnergy(newEnergy > 0 ? newEnergy : 0)
     }
 
     const handleIncrement = (newEnergy: number) => {
-        useEnergy(newEnergy)
+        setEnergy(newEnergy)
     }
 
     return (
