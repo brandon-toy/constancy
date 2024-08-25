@@ -3,6 +3,7 @@ import Energy from '@/components/energy'
 import ResetButton from '@/components/resetbutton'
 import StoreProvider from './StoreProvider'
 import LockButton from '@/components/lockbutton'
+import SpiritSelectionButton from '@/components/spiritSelectionButton'
 
 export default function Page() {
     return (
@@ -17,8 +18,9 @@ export default function Page() {
                 <div className="pt-100 pb-100">&nbsp;</div>
             </div>
             <div className="btm-nav mt-1000 z-0">
-                <ResetButton />
                 <LockButton />
+                <ResetButton />
+                <SpiritSelectionButton />
             </div>
         </StoreProvider>
     )

@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import elementSlice from './features/elements/elementSlice'
+import spiritSlice from './features/elements/spiritSlice'
 
 export const makeStore = () => {
     return configureStore({
         reducer: {
             elements: elementSlice,
+            spirit: spiritSlice,
         },
     })
 }

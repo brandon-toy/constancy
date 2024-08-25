@@ -23,13 +23,13 @@ export default function Energy() {
                     <div className="card-actions justify-end">
                         <button
                             onClick={() => handleDecrement(energy - 1)}
-                            className="btn"
+                            className="btn text-secondary"
                         >
                             -
                         </button>
                         <button
                             onClick={() => handleIncrement(energy + 1)}
-                            className="btn"
+                            className="btn text-secondary"
                         >
                             +
                         </button>
