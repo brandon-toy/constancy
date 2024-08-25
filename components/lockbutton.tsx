@@ -12,7 +12,7 @@ export default function LockButton() {
     const lockText = 'Lock'
 
     return (
-        <button className="btn" onClick={() => dispatch(hitLock())}>
+        <button onClick={() => dispatch(hitLock())}>
             {lockElement ? (
                 <div className="text-error">{lockText}</div>
             ) : (

@@ -7,14 +7,18 @@ import LockButton from '@/components/lockbutton'
 export default function Page() {
     return (
         <StoreProvider>
-            <Energy />
-            <Element />
-            <div className="flex items-center justify-center">
-                <div className="flex-1" />
-                <ResetButton />
-                <div className="flex-1">
-                    <LockButton />
+            <div className="h-dvh z-100">
+                <div className="pt-5">
+                    <Energy />
                 </div>
+                <Element />
+                <div className="pt-100 pb-100">&nbsp;</div>
+                <div className="pt-100">&nbsp;</div>
+                <div className="pt-100 pb-100">&nbsp;</div>
+            </div>
+            <div className="btm-nav mt-1000 z-0">
+                <ResetButton />
+                <LockButton />
             </div>
         </StoreProvider>
     )

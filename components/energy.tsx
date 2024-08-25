@@ -5,18 +5,37 @@ import { useState } from 'react'
 export default function Energy() {
     const [energy, useEnergy] = useState(0)
 
-    const HandleClick = (newEnergy: number) => {
+    const handleDecrement = (newEnergy: number) => {
         useEnergy(newEnergy > 0 ? newEnergy : 0)
+    }
+
+    const handleIncrement = (newEnergy: number) => {
+        useEnergy(newEnergy)
     }
 
     return (
         <div className="flex items-center flex-col ">
-            <div className="text-8xl flex flex-row content-center">
-                <button onClick={() => HandleClick(energy - 1)}>-</button>
-                <div className="text-9xl">{energy}</div>
-                <button onClick={() => HandleClick(energy + 1)}>+</button>
+            <div className="card bg-base-100 w-25 shadow-xl">
+                <div className="card-body">
+                    <h2 className="card-title">{energy}</h2>
+                    <p>Energy</p>
+                    <div className="card-actions justify-start"></div>
+                    <div className="card-actions justify-end">
+                        <button
+                            onClick={() => handleDecrement(energy - 1)}
+                            className="btn"
+                        >
+                            -
+                        </button>
+                        <button
+                            onClick={() => handleIncrement(energy + 1)}
+                            className="btn"
+                        >
+                            +
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div className="text-3xl">Energy</div>
         </div>
     )
 }

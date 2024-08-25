@@ -28,7 +28,7 @@ export default function ElementsModule() {
     )
 
     return (
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center pb-100">
             {Object.keys(elements).map((element: string) => {
                 const elementKey = element as keyof Elements
                 return (
