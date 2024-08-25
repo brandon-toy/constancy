@@ -16,7 +16,7 @@ export default function LockButton() {
             {lockElement ? (
                 <div className="text-error">{lockText}</div>
             ) : (
-                <div>{lockText}</div>
+                <div className="text-accent">{lockText}</div>
             )}
         </button>
     )

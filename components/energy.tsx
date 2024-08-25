@@ -17,8 +17,8 @@ export default function Energy() {
         <div className="flex items-center flex-col ">
             <div className="card bg-base-100 w-25 shadow-xl">
                 <div className="card-body">
-                    <h2 className="card-title">{energy}</h2>
-                    <p>Energy</p>
+                    <h2 className="text-accent card-title">{energy}</h2>
+                    <p className="text-accent">Energy</p>
                     <div className="card-actions justify-start"></div>
                     <div className="card-actions justify-end">
                         <button

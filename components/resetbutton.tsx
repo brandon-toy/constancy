@@ -6,5 +6,12 @@ import { useDispatch } from 'react-redux'
 export default function ResetButton() {
     const dispatch = useDispatch()
 
-    return <button onClick={() => dispatch(resetElements())}>Reset</button>
+    return (
+        <button
+            className="text-accent"
+            onClick={() => dispatch(resetElements())}
+        >
+            Reset
+        </button>
+    )
 }

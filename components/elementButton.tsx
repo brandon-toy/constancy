@@ -10,7 +10,7 @@ interface ElementButtonProps {
 
 export default function ElementButton(props: ElementButtonProps) {
     return (
-        <div className="join">
+        <div className="join px-20">
             <button onClick={props.decrementButton} className="join-item btn">
                 -
             </button>

@@ -7,7 +7,7 @@ import LockButton from '@/components/lockbutton'
 export default function Page() {
     return (
         <StoreProvider>
-            <div className="h-dvh z-100">
+            <div className="bg-secondary h-dvh z-100">
                 <div className="pt-5">
                     <Energy />
                 </div>
