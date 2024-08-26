@@ -1,6 +1,6 @@
 'use client'
 
-import { resetElements } from '@/lib/features/elements/elementSlice'
+import { clickSpiritTab } from '@/lib/features/elements/spiritSlice'
 import { useDispatch } from 'react-redux'
 
 export default function SpiritSelectionButton() {
@@ -9,7 +9,7 @@ export default function SpiritSelectionButton() {
     return (
         <button
             className="text-accent"
-            onClick={() => dispatch(resetElements())}
+            onClick={() => dispatch(clickSpiritTab())}
         >
             Spirit
         </button>

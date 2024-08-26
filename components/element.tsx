@@ -28,33 +28,35 @@ export default function ElementsModule() {
     )
 
     return (
-        <div className="flex flex-col justify-center items-center">
-            {Object.keys(elements).map((element: string) => {
-                const elementKey = element as keyof Elements
-                return (
-                    <Element
-                        key={elementKey}
-                        imageSource={elements[elementKey].image}
-                        count={
-                            elements[elementKey].value +
-                            elements[elementKey].lockedValue
-                        }
-                        reducers={{
-                            increment:
-                                elementReducerMapping[elementKey].increment,
-                            incrementLocked:
-                                elementReducerMapping[elementKey]
-                                    .incrementLocked,
-                            decrement:
-                                elementReducerMapping[elementKey].decrement,
-                            decrementLocked:
-                                elementReducerMapping[elementKey]
-                                    .decrementLocked,
-                        }}
-                        element={element}
-                    />
-                )
-            })}
+        <div>
+            <div className="flex flex-col justify-center items-center">
+                {Object.keys(elements).map((element: string) => {
+                    const elementKey = element as keyof Elements
+                    return (
+                        <Element
+                            key={elementKey}
+                            imageSource={elements[elementKey].image}
+                            count={
+                                elements[elementKey].value +
+                                elements[elementKey].lockedValue
+                            }
+                            reducers={{
+                                increment:
+                                    elementReducerMapping[elementKey].increment,
+                                incrementLocked:
+                                    elementReducerMapping[elementKey]
+                                        .incrementLocked,
+                                decrement:
+                                    elementReducerMapping[elementKey].decrement,
+                                decrementLocked:
+                                    elementReducerMapping[elementKey]
+                                        .decrementLocked,
+                            }}
+                            element={element}
+                        />
+                    )
+                })}
+            </div>
         </div>
     )
 }
